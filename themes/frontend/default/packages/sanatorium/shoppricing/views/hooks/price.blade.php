@@ -1,0 +1,1 @@
+<span class="object-price" itemprop="price">{{ $object->price }}</span>
