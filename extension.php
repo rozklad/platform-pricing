@@ -84,7 +84,6 @@ return [
 	*/
 
 	'require' => [
-		'sanatorium/shop',
 	],
 
 	/*
