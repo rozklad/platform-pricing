@@ -43,7 +43,7 @@ class CurrenciesController extends Controller {
 						'level_name' => 'cart',
 						'datetime' => \Carbon\Carbon::now(),
 						'message' => 'Cart::remove('.$rowId.') failed for ' . $_SERVER['REMOTE_ADDR']
-					]; 
+					];
 					Event::fire('logger.error', [ $record ]);
 				}
 
@@ -71,8 +71,8 @@ class CurrenciesController extends Controller {
 		try {
 			Cart::remove('nesmysl');
 		} catch(\Cartalyst\Cart\Exceptions\CartItemNotFoundException $e) {
-			// 
-			dd($e);
+			//
+			// dd($e);
 		}
 
 		return redirect()->back();
