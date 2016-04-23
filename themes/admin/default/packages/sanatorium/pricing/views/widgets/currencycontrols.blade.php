@@ -17,6 +17,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
+	@if ( Route::has('admin.sanatorium.pricingexchangecnb.exchange.history') )
 	<div class="b-b b-t b-grey p-l-20 p-r-20 p-b-10 p-t-10">
 		<p class="pull-left">
 			<a href="{{ route('admin.sanatorium.pricingexchangecnb.exchange.history') }}">
@@ -25,6 +26,8 @@
 		</p>
 		<div class="clearfix"></div>
 	</div>
+	@endif
+	@if ( Route::has('admin.sanatorium.pricingexchangecnb.exchange') )
 	<div class="b-b b-grey p-l-20 p-r-20 p-b-10 p-t-10">
 		<p class="pull-left">
 			<a href="{{ route('admin.sanatorium.pricingexchangecnb.exchange') }}">
@@ -33,4 +36,5 @@
 		</p>
 		<div class="clearfix"></div>
 	</div>
+	@endif
 </div>

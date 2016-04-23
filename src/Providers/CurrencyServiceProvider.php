@@ -39,8 +39,6 @@ class CurrencyServiceProvider extends ServiceProvider {
 		// Register the Blade @pricing widget
         $this->registerBladePricingWidget();
 
-        define('SANATORIUM_SHOPPRICING', true);
-
         $this->prepareResources();
 
         // Register product as product
