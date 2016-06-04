@@ -18,9 +18,11 @@ class Hooks {
 
 	public function currencies($class = null)
 	{
-		$currencies = Currency::all();
+		$select = ['id', 'code'];
 
-		$active_currency = Currency::find( Product::getActiveCurrencyId() );
+		$currencies = app('sanatorium.pricing.currency')->get($select);
+
+		$active_currency = app('sanatorium.pricing.currency')->whereId( Product::getActiveCurrencyId() )->first($select);
 
 		return view('sanatorium/pricing::hooks/currencies', compact('currencies', 'active_currency', 'class'));
 	}

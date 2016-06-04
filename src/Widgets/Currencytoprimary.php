@@ -18,7 +18,13 @@ class Currencytoprimary {
 		if ( !is_object($currency) )
 			return null;
 
+		if ( !is_object($primary) )
+			return null;
+
 		$yesterday_currency = CurrenciesHistory::where('currency_id', $currency->id)->first();
+
+		if ( !is_object($yesterday_currency) )
+			return null;
 
 		$change = (($currency->unit - $yesterday_currency->rate) / $yesterday_currency->rate) * 100;
 
