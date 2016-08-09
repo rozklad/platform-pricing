@@ -57,7 +57,8 @@ class CurrenciesController extends Controller {
 					'weight' 	=> $product->weight
 				];
 
-				Cart::add($item);
+                if ( class_exists('Cart') )
+				    Cart::add($item);
 
 			}
 
@@ -69,7 +70,8 @@ class CurrenciesController extends Controller {
 	public function test()
 	{
 		try {
-			Cart::remove('nesmysl');
+            if ( class_exists('Cart') )
+			    Cart::remove('nesmysl');
 		} catch(\Cartalyst\Cart\Exceptions\CartItemNotFoundException $e) {
 			//
 			// dd($e);
