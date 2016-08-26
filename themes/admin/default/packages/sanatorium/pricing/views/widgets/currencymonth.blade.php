@@ -1,13 +1,13 @@
 {{-- Chart lib --}}
-{{ Asset::queue('nvd3', 'nvd3/nv.d3.min.css', 'style') }}
-{{ Asset::queue('d3', 'nvd3/lib/d3.v3.js', 'jquery') }}
-{{ Asset::queue('nvd3', 'nvd3/nv.d3.min.js', 'jquery') }}
-{{ Asset::queue('utils', 'nvd3/src/utils.js', 'jquery') }}
-{{ Asset::queue('tooltip', 'nvd3/src/tooltip.js', 'jquery') }}
-{{ Asset::queue('interactiveLayer', 'nvd3/src/interactiveLayer.js', 'jquery') }}
-{{ Asset::queue('axis', 'nvd3/src/models/axis.js', 'jquery') }}
-{{ Asset::queue('line', 'nvd3/src/models/line.js', 'jquery') }}
-{{ Asset::queue('lineWithFocusChart', 'nvd3/src/models/lineWithFocusChart.js', 'jquery') }}
+{{ Asset::queue('nvd3', 'Sanatorium/pricing::nvd3/nv.d3.min.css', 'style') }}
+{{ Asset::queue('d3', 'Sanatorium/pricing::nvd3/lib/d3.v3.js', 'jquery') }}
+{{ Asset::queue('nvd3', 'Sanatorium/pricing::nvd3/nv.d3.min.js', 'jquery') }}
+{{ Asset::queue('utils', 'Sanatorium/pricing::nvd3/src/utils.js', 'jquery') }}
+{{ Asset::queue('tooltip', 'Sanatorium/pricing::nvd3/src/tooltip.js', 'jquery') }}
+{{ Asset::queue('interactiveLayer', 'Sanatorium/pricing::nvd3/src/interactiveLayer.js', 'jquery') }}
+{{ Asset::queue('axis', 'Sanatorium/pricing::nvd3/src/models/axis.js', 'jquery') }}
+{{ Asset::queue('line', 'Sanatorium/pricing::nvd3/src/models/line.js', 'jquery') }}
+{{ Asset::queue('lineWithFocusChart', 'Sanatorium/pricing::nvd3/src/models/lineWithFocusChart.js', 'jquery') }}
 
 <div class="panel no-border widget-loader-circle no-margin">
 	<div class="row">

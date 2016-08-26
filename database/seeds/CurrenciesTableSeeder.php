@@ -47,6 +47,16 @@ class CurrenciesTableSeeder extends Seeder {
 			'short_format' => '0!0 €',
 			'locale' => 'eu'
 			]);
+
+        Currency::create([
+            'name' => 'Swiss franc',
+            'code' => 'chf',
+            'unit' => 24.786,
+            'symbol' => 'CHF',
+            'format' => '0,0.00 CHF',
+            'short_format' => '0!0 CHF',
+            'locale' => 'de_CH'
+        ]);
 	}
 
 }
