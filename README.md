@@ -16,6 +16,7 @@ No documentation available.
 ## Changelog
 
 3.0.4 - 2016-09-15 - Platform 5 support, caching
+0.1.0 - 2016-04-14 - Basic functionality
 
 ## Support
 
