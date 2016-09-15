@@ -27,15 +27,7 @@ class CurrencyServiceProvider extends ServiceProvider {
 			'currency' => []
 		];
 
-        // Check if currencies are cached
-        if ( ! $currencies = $this->app['cache']->get('sanatorium.pricing.currency.all') )
-        {
-
-            $currencies = $this->app['sanatorium.pricing.currency']->findAll();
-
-        }
-
-		foreach( $currencies as $currency ) {
+		foreach( $this->app['sanatorium.pricing.currency']->findAll() as $currency ) {
 			$measurements['currency'][$currency->code] = [
 				'format' => $currency->format,
 				'unit' => $currency->unit
