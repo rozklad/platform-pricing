@@ -3,6 +3,7 @@
 use Sanatorium\Pricing\Models\Currency;
 use Sanatorium\Pricing\Models\Money;
 use Converter;
+use Cache;
 
 trait PriceableTrait {
 
@@ -101,6 +102,21 @@ trait PriceableTrait {
      */
     public function getPrice($type = 'plain', $quantity = 1, $currency_id = null, $formatted = true, $short_formatted = true, $force = true)
     {
+        $cache_price_key = implode('.', [
+            get_class($this),
+            $this->id,
+            $type,
+            $quantity,
+            $currency_id,
+            (int)$formatted,
+            (int)$short_formatted,
+            (int)$force
+        ]);
+
+        if ( Cache::has($cache_price_key) ) {
+            return Cache::get($cache_price_key);
+        }
+
         // Get active currency id
         if ( !$currency_id )
             $currency_id = self::getActiveCurrencyId();
@@ -122,8 +138,12 @@ trait PriceableTrait {
             return 0;
         }
 
-    	// Return amount
-    	return $price->orderBy('created_at', 'DESC')->first()->amount * $quantity;
+    	// Total amount
+        $total = $price->orderBy('created_at', 'DESC')->first()->amount * $quantity;
+
+        Cache::put($cache_price_key, $total, 60);
+
+    	return $total;
     }
 
     public function setPrice($type = 'plain', $value, $currency_id = null, $primary = 0, $manual = 1)
