@@ -90,8 +90,8 @@ trait PriceableTrait {
 
     /**
      * [getPrice description]
-     * @example $product->getPrice('plain', 1, true, true)
-     * @example $product->getPrice('vat', 1, true, true)
+     * @example $product->getPrice('plain', 1, null, true, true)
+     * @example $product->getPrice('vat', 1, null, true, true)
      * @param  string  $type            [description]
      * @param  integer $quantity        [description]
      * @param  integer $currency_id     [description]
@@ -133,7 +133,10 @@ trait PriceableTrait {
 
     	// If no price data available, return 0
     	if ( !$price->count() && $force ) {
-    		return $this->getPriceObject($currency_id, $type)->amount * $quantity;
+    		if ( ( $result = $this->getPriceObject($currency_id, $type)->amount * $quantity ) == 0 && $this->parent_id ) {
+    		    return app('sanatorium.shop.product')->find($this->parent_id)->getPrice($type, $quantity, $currency_id, $formatted, $short_formatted, $force);
+            }
+            return $result;
         } else if ( !$price->count() ) {
             return 0;
         }
